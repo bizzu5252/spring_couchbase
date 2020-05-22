@@ -1,0 +1,45 @@
+Install Docker
+
+Install couchbase
+	
+	pull couchbase-community edition image
+
+		"docker pull couchbase:community-6.5.1"
+	run docker container
+		"docker run -d --name couchbasecommunitydb -p 8091-8094:8091-8094 -p 11210:11210 couchbase:community-6.5.1"
+
+
+Open url "localhost:8091"
+
+Setup couchbase cluster
+	
+	"Cluster name": "CouchbaseLearningCluster"
+	"Admin Username": "Administrator"
+	"password": Tesco@2018
+
+Go to Buckets and Create a bucket
+
+	"name": "Employee"
+
+Add some records to the "Employee Bucket"
+	
+	"id": "emp_1"
+	"payload": "{
+				  "name": "Brijesh",
+				  "organisation": "Tesco",
+				  "building": "Sonic",
+				  "profile": "Developer",
+				  "hobbies": "Cricket, Piano, TT, Teaching",
+				  "tech_stack": "there are no reserved field names"
+				}"
+
+Go to Security and create a user
+	
+	"username": "brijesh"
+	"full name": "Brijesh kumar gupta"
+	"password": "Global@march20"
+	"roles": "Bucket application access"
+
+Create a primary index
+	"query": "CREATE PRIMARY INDEX ON Employee USING GSI;"
+
